@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vidente_app/controllers/cidade_controller.dart';
+import 'package:vidente_app/controllers/tema_controller.dart';
 import 'package:vidente_app/models/cidade.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:vidente_app/services/cidade_service.dart';
@@ -40,9 +41,26 @@ class _ConfiguracoesState extends State<Configuracoes> {
             algumaCidadeEscolhida ? "Configurações" : "Escolha uma cidade"),
       ),
       body: Container(
-        padding: EdgeInsets.fromLTRB(16, 60, 16, 0),
+        padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
         child: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Column(
+                  children: [
+                    Icon(Icons.brightness_6_outlined),
+                    Switch(
+                      value: TemaController.instancia.usarTemaEscuro,
+                      onChanged: (valor) {
+                        TemaController.instancia.trocarTema();
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Padding(padding: EdgeInsets.only(bottom: 16)),
             TypeAheadField<Cidade>(
               textFieldConfiguration: TextFieldConfiguration(
                 decoration: InputDecoration(
