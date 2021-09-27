@@ -13,12 +13,14 @@ class Configuracoes extends StatefulWidget {
 class _ConfiguracoesState extends State<Configuracoes> {
   List<Cidade> cidades;
   bool carregandoCidades;
+  String filtro;
 
   @override
   void initState() {
     super.initState();
     carregarCidades();
     this.carregandoCidades = false;
+    this.filtro = "";
   }
 
   void carregarCidades() async {
@@ -60,24 +62,19 @@ class _ConfiguracoesState extends State<Configuracoes> {
                 ),
               ],
             ),
-            Padding(padding: EdgeInsets.only(bottom: 16)),
             TypeAheadField<Cidade>(
               textFieldConfiguration: TextFieldConfiguration(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
                   border: OutlineInputBorder(),
-                  hintText: 'Procurar cidade',
+                  hintText: "Procurar cidade",
+                  // prefixText: filtro,
                 ),
               ),
               suggestionsCallback: filtrarCidades,
               onSuggestionSelected: (sugestao) async {
-                CidadeService service = CidadeService();
-                final String filtro = sugestao.nome + ' ' + sugestao.estado;
-                service
-                    .pesquisarCidade(filtro)
-                    .then((resultado) => Navigator.pushNamed(context, '/home'));
                 setState(() {
-                  this.carregandoCidades = true;
+                  this.filtro = sugestao.nome + " " + sugestao.estado;
                 });
               },
               itemBuilder: (context, sugestao) {
@@ -96,6 +93,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
                 ),
               ),
             ),
+            Padding(padding: EdgeInsets.only(bottom: 16)),
             this.carregandoCidades
                 ? Column(
                     children: [
@@ -106,7 +104,23 @@ class _ConfiguracoesState extends State<Configuracoes> {
                       )
                     ],
                   )
-                : Text('')
+                : Text(""),
+            this.filtro != ""
+                ? ElevatedButton(
+                    onPressed: () async {
+                      CidadeService service = CidadeService();
+                      service.pesquisarCidade(filtro).then(
+                          (resultado) => Navigator.pushNamed(context, '/home'));
+                      setState(() {
+                        this.carregandoCidades = true;
+                      });
+                    },
+                    child: Text(
+                      "Salvar Configurações",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  )
+                : Text(""),
           ],
         ),
       ),
