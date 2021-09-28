@@ -14,6 +14,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
   List<Cidade> cidades;
   bool carregandoCidades;
   String filtro;
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
@@ -64,17 +65,18 @@ class _ConfiguracoesState extends State<Configuracoes> {
             ),
             TypeAheadField<Cidade>(
               textFieldConfiguration: TextFieldConfiguration(
+                controller: this._controller,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
                   border: OutlineInputBorder(),
                   hintText: "Procurar cidade",
-                  // prefixText: filtro,
                 ),
               ),
               suggestionsCallback: filtrarCidades,
               onSuggestionSelected: (sugestao) async {
                 setState(() {
                   this.filtro = sugestao.nome + " " + sugestao.estado;
+                  this._controller.text = filtro;
                 });
               },
               itemBuilder: (context, sugestao) {
@@ -93,18 +95,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(bottom: 16)),
-            this.carregandoCidades
-                ? Column(
-                    children: [
-                      Padding(padding: EdgeInsets.all(20)),
-                      Image(
-                        image: AssetImage('images/loading.gif'),
-                        width: 50,
-                      )
-                    ],
-                  )
-                : Text(""),
+            Padding(padding: EdgeInsets.only(top: 20)),
             this.filtro != ""
                 ? ElevatedButton(
                     onPressed: () async {
@@ -119,6 +110,17 @@ class _ConfiguracoesState extends State<Configuracoes> {
                       "Salvar Configurações",
                       style: TextStyle(fontSize: 16),
                     ),
+                  )
+                : Text(""),
+            this.carregandoCidades
+                ? Column(
+                    children: [
+                      Padding(padding: EdgeInsets.all(20)),
+                      Image(
+                        image: AssetImage('images/loading.gif'),
+                        width: 50,
+                      )
+                    ],
                   )
                 : Text(""),
           ],
