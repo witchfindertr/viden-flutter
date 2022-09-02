@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:vidente_app/models/cidade.dart';
+import 'package:vidente/models/cidade.dart';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';

@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
-import 'package:vidente_app/controllers/cidade_controller.dart';
-import 'package:vidente_app/models/cidade.dart';
+import 'package:vidente/controllers/cidade_controller.dart';
+import 'package:vidente/models/cidade.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 
@@ -10,7 +9,7 @@ class CidadeService {
   final String baseUrlAPI = 'dataservice.accuweather.com';
   final String path = '/locations/v1/cities/search';
   final Map<String, String> params = {
-    'apikey': env['API_KEY'],
+    'apikey': dotenv.env['API_KEY'],
     'language': 'pt-BR'
   };
 

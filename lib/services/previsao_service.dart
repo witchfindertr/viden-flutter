@@ -1,6 +1,6 @@
-import 'package:vidente_app/controllers/cidade_controller.dart';
-import 'package:vidente_app/models/previsao_hora.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:vidente/controllers/cidade_controller.dart';
+import 'package:vidente/models/previsao_hora.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 
@@ -9,7 +9,7 @@ class PrevisaoService {
   final String path =
       '/forecasts/v1/hourly/12hour/${CidadeController.instancia.cidadeEscolhida.codigo}';
   final Map<String, String> params = {
-    'apikey': env['API_KEY'],
+    'apikey': dotenv.env['API_KEY'],
     'language': 'pt-BR',
     'metric': 'true'
   };

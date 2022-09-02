@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vidente_app/models/previsao_hora.dart';
+import 'package:vidente/models/previsao_hora.dart';
 
 class ProximasTemperaturas extends StatelessWidget {
   final List<PrevisaoHora> previsoes;

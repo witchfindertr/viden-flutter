@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:vidente_app/controllers/cidade_controller.dart';
-import 'package:vidente_app/models/cidade.dart';
-import 'package:vidente_app/models/previsao_hora.dart';
-import 'package:vidente_app/services/previsao_service.dart';
-import 'package:vidente_app/widgets/configuracoes.dart';
-import 'package:vidente_app/widgets/proximas_temperaturas.dart';
-import 'package:vidente_app/widgets/resumo.dart';
+import 'package:vidente/controllers/cidade_controller.dart';
+import 'package:vidente/models/cidade.dart';
+import 'package:vidente/models/previsao_hora.dart';
+import 'package:vidente/services/previsao_service.dart';
+import 'package:vidente/widgets/configuracoes.dart';
+import 'package:vidente/widgets/proximas_temperaturas.dart';
+import 'package:vidente/widgets/resumo.dart';
 
 class Home extends StatefulWidget {
   @override

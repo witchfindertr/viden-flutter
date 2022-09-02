@@ -1,4 +1,4 @@
-name: vidente_app
+name: vidente
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -23,9 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: 0.13.3
-  flutter_dotenv: 3.1.0
-  flutter_typeahead: 3.2.0
+  http: 0.13.5
+  flutter_dotenv: 5.0.2
+  flutter_typeahead: 4.0.0
   sqflite:
   path:
 
@@ -37,6 +37,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

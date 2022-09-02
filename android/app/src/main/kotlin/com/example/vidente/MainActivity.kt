@@ -1,4 +1,4 @@
-package com.example.vidente_app
+package com.example.vidente
 
 import io.flutter.embedding.android.FlutterActivity
 

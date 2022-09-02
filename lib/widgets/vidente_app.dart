@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vidente_app/controllers/cidade_controller.dart';
-import 'package:vidente_app/controllers/tema_controller.dart';
-import 'package:vidente_app/widgets/configuracoes.dart';
-import 'package:vidente_app/widgets/home.dart';
+import 'package:vidente/controllers/cidade_controller.dart';
+import 'package:vidente/controllers/tema_controller.dart';
+import 'package:vidente/widgets/configuracoes.dart';
+import 'package:vidente/widgets/home.dart';
 
 class VidenteApp extends StatelessWidget {
   @override

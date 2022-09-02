@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vidente_app/controllers/cidade_controller.dart';
-import 'package:vidente_app/controllers/tema_controller.dart';
-import 'package:vidente_app/models/cidade.dart';
+import 'package:vidente/controllers/cidade_controller.dart';
+import 'package:vidente/controllers/tema_controller.dart';
+import 'package:vidente/models/cidade.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:vidente_app/services/cidade_service.dart';
+import 'package:vidente/services/cidade_service.dart';
 
 class Configuracoes extends StatefulWidget {
   @override
